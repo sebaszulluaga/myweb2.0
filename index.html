@@ -27,7 +27,18 @@
      <link rel="icon" type="image/x-icon" href="/comp.svg">
 
     <style>
-    
+        #dog-lick-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background:  #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
     .fadeOut {
       animation: fadeOut 1s forwards;
     }
@@ -97,7 +108,14 @@
     <script>
 
 document.addEventListener("DOMContentLoaded", function () {
-           
+         setTimeout(() => {
+              const dogOverlay = document.getElementById("dog-lick-overlay");
+              dogOverlay.classList.add("fadeOut");
+              setTimeout(() => {
+                dogOverlay.style.display = "none";
+              }, 600); // Esconder completamente después de la animación
+            }, 2000);
+          });
       function showTime() {
         var date = new Date();
         var h = date.getHours(); // 0 - 23
